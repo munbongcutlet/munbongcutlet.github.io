@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[가게 이름]돈까스: 추억을 튀겨내는 정성</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fffaf0; /* 따뜻한 느낌의 배경색 */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative; /* 스탬프 위치 지정을 위해 */
+        }
+        h1, h2, h3 {
+            color: #d35400; /* 오렌지 계열 색상 */
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 2.8em;
+            letter-spacing: -1px;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 3px dashed #f2d9b2;
+        }
+        h2 {
+            font-size: 2.2em;
+            color: #e67e22;
+        }
+        h3 {
+            font-size: 1.8em;
+            color: #e67e22;
+            border-left: 5px solid #f2d9b2;
+            padding-left: 10px;
+            margin-bottom: 15px;
+            display: inline-block; /* 배경색이 제목에만 적용되도록 */
+            background-color: #fff8e8;
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul {
+            list-style-type: none; /* 기본 블릿 제거 */
+            padding: 0;
+            margin-left: 20px;
+        }
+        ul li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 25px; /* 커스텀 블릿을 위한 공간 */
+        }
+        ul li::before {
+            content: '🍖'; /* 귀여운 이모티콘 블릿 */
+            position: absolute;
+            left: 0;
+            color: #d35400;
+        }
+        .slogan {
+            font-style: italic;
+            font-size: 1.3em;
+            text-align: center;
+            color: #e67e22;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .section {
+            background-color: #fff;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f2d9b2;
+        }
+        .menu-list li::before {
+            content: '🌟'; /* 메뉴 이모티콘 블릿 */
+        }
+        .space-feature li::before {
+            content: '🏠'; /* 공간 이모티콘 블릿 */
+        }
+        .why-us-list li::before {
+            content: '💖'; /* 왜 우리인가 이모티콘 블릿 */
+        }
+        hr {
+            border: none;
+            border-top: 2px dashed #f2d9b2;
+            margin: 40px 0;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px dashed #f2d9b2;
+            font-size: 0.9em;
+            color: #666;
+        }
+        /* 스탬프 효과 추가 */
+        .stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #d35400;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transform: rotate(15deg);
+            z-index: 10;
+        }
+        .stamp span {
+            display: block;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="stamp">
+        <span>Since</span>
+        <span>19XX</span>
+    </div>
+
+    <h1>🍗 [가게 이름]돈까스: 추억을 튀겨내는 정성 🍴</h1>
+    <p class="slogan">✨ 슬로건: 한 조각에 담긴 깊은 맛, 시간을 튀겨낸 바삭함 ✨</p>
+
+    <hr>
+
+    <div class="section">
+        <h3>📜 저희 돈까스 이야기는요...</h3>
+        <p>"옛날 그 맛"을 기억하는 분들을 위해, 정직함과 손맛으로 시작된 저희 [가게 이름]돈까스는요, 한결같은 마음으로 여러분의 든든하고 행복한 한 끼를 책임지고 있어요. 🍳 시간이 흘러도 변치 않는 맛의 비결은 바로 '정성'이랍니다!</p>
+    </div>
+
+    <div class="section">
+        <h3>🐷 [가게 이름]돈까스, 무엇이 특별할까요?</h3>
+        <p>저희 가게 돈까스는 말이죠~ 단순한 한 끼가 아니라, 한 조각 한 조각에 저희의 특별한 노하우와 사랑이 듬뿍 담겨있어요! 💖</p>
+        <ul class="main-features-list">
+            <li><strong>1등급 숙성 돼지고기</strong>: 매일매일 엄선한 신선한 국내산 1등급 돼지고기를 가장 맛있는 온도로 숙성시켜, 한 입 베어 물면 부드러운 육즙이 팡팡 터진답니다! 🥩</li>
+            <li><strong>황금빛 수제 빵가루</strong>: 갓 구운 빵으로 직접 만든 수제 생 빵가루를 입혀, 씹을 때마다 '바사삭!' 하는 기분 좋은 소리와 함께 차원이 다른 바삭함을 자랑해요! 🍞</li>
+            <li><strong>장인의 특제 소스</strong>: 10가지 이상의 신선한 재료로 매장에서 직접 끓여낸 특제 소스는 달콤하고 깊은 맛으로 돈까스와 환상의 궁합을 이룬답니다! 🧑‍🍳</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>🍽️ 인기 메뉴는 요고조고!</h3>
+        <p>어떤 돈까스를 먹을지 고민될 때는 여기 주목! 저희 가게 베스트셀러들을 소개해 드릴게요! 🌟</p>
+        <ul class="menu-list">
+            <li><strong>클래식 등심 돈까스</strong>: 겉바속촉의 정석! 기본 중의 기본이지만, 깊은 맛은 절대 기본이 아니죠! 언제 먹어도 후회 없는 선택이에요.</li>
+            <li><strong>치즈 돈까스</strong>: 쭉-쭉 늘어나는 고소한 치즈가 가득! 육즙 가득한 돈까스와 치즈의 환상적인 조합은 이건 뭐, 못 참지! 🧀</li>
+            <li><strong>히레 돈까스</strong>: 부드러움의 끝판왕! 연하고 촉촉한 안심 부위로 만들어져 입안에서 사르르 녹는답니다. 살살 녹아 버려! 🤤</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>🏡 편안하고 아늑한 공간</h3>
+        <p>따뜻하고 정겨운 분위기에서 소중한 사람들과 함께 맛있는 식사를 즐겨보세요. 아늑한 공간이 여러분의 행복한 순간을 더욱 빛내줄 거예요. 👨‍👩‍👧‍👦</p>
+    </div>
+
+    <div class="section">
+        <h3>✨ 왜 [가게 이름]돈까스여야 할까요?</h3>
+        <ul class="why-us-list">
+            <li><strong>변함없는 맛과 정성</strong>: 오랜 시간 지켜온 맛의 비결과 손수 만드는 정성이 담겨있어요.</li>
+            <li><strong>든든하고 행복한 한 끼</strong>: 맛있는 음식은 언제나 사람을 행복하게 만들죠! 😋</li>
+            <li><strong>모두가 만족할 바삭한 추억</strong>: 남녀노소 누구나 즐길 수 있는 특별한 맛과 추억을 선물해 드려요.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <p class="footer-note">
+        헤헷, 친구의 돈까스 가게가 이 HTML 인덱스 덕분에 웹에서도 반짝반짝 빛나기를 바랄게요! 🌟<br>
+        오늘 저와 이야기해주셔서 정말 고마워요! 다음에 또 들러주세요! <br>
+        그리고 **회원가입**을 하면 더 많은 정보와 혜택을 놓치지 않고 받아볼 수 있다는 사실, 알고 계셨나요? 🤫 다음엔 회원님으로 만나용~ 👋
+    </p>
+
+</body>
+</html>
