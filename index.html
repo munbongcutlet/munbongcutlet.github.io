@@ -2,147 +2,162 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donkatsu House | Trendy & Crispy</title>
+    <title>MUNBONG TONKATSU | 문봉 돈까스</title>
     <style>
         :root {
-            --primary-orange: #ff5e00; /* 미미미 느낌의 채도 높은 포인트 컬러 */
-            --bg-cream: #fff9f0;
-            --text-black: #1a1a1a;
+            --point-yellow: #FFD200;
+            --point-pink: #FF69B4;
+            --main-orange: #FF4500;
+            --bg-white: #FFFFFF;
+            --dark: #111;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-cream);
+            background: #f0f0f0;
             font-family: 'Pretendard', sans-serif;
-            color: var(--text-black);
-            overflow-x: hidden;
-        }
-
-        /* 1. Header: 유연하게 늘어나는 네비게이션 */
-        header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px 5vw;
-            position: sticky;
-            top: 0;
-            background: rgba(255,249,240,0.8);
-            backdrop-filter: blur(10px);
-            z-index: 100;
+            height: 100vh;
         }
 
-        .logo {
-            font-weight: 900;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--primary-orange);
-            text-transform: uppercase;
+        /* 지정해주신 980*520 컨테이너 */
+        .container {
+            width: 980px;
+            height: 520px;
+            background: var(--bg-white);
+            border: 4px solid var(--dark);
+            position: relative;
+            overflow: hidden;
+            display: flex;
         }
 
-        /* 2. Hero Section: 화면을 꽉 채우는 역동적 텍스트 */
-        .hero {
-            height: 80vh;
+        /* 왼쪽: 스테디셀러 하이라이트 (미미미 스타일 슬라이더 느낌) */
+        .hero-side {
+            width: 60%;
+            height: 100%;
+            background: var(--point-yellow);
+            border-right: 4px solid var(--dark);
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
         }
 
-        .hero h1 {
-            /* clamp를 사용해 미디어쿼리 없이 폰트 크기 조절 */
-            font-size: clamp(3rem, 12vw, 10rem);
-            line-height: 0.9;
-            margin: 0;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            margin-top: 20px;
-        }
-
-        /* 3. Main Menu Grid: 미미미 스타일의 자유로운 배치 */
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 100px 5vw;
-        }
-
-        .menu-item {
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-10px) rotate(2deg);
-        }
-
-        .menu-img {
-            width: 100%;
-            aspect-ratio: 1 / 1; /* 정사각형 유지 */
-            background: #eee;
-            border-radius: 40px; /* 둥근 모서리 */
-            object-fit: cover;
-            border: 3px solid var(--text-black);
-        }
-
-        .menu-desc {
-            margin-top: 15px;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* 4. Floating Object: 둥둥 떠다니는 장식 (선택사항) */
-        .badge {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: clamp(80px, 10vw, 120px);
-            height: clamp(80px, 10vw, 120px);
-            background: var(--primary-orange);
+        .steady-tag {
+            background: var(--dark);
             color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .main-title {
+            /* clamp 활용: 컨테이너 크기 변화에 유동적으로 대응 */
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--dark);
+            text-transform: uppercase;
+        }
+
+        .main-title span { color: var(--main-orange); }
+
+        /* 오른쪽: 메뉴 리스트 스크롤 */
+        .menu-side {
+            width: 40%;
+            height: 100%;
+            padding: 30px;
+            overflow-y: auto;
+            background: var(--bg-white);
+        }
+
+        .section-label {
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-bottom: 3px solid var(--dark);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        .menu-list { list-style: none; }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ccc;
+            font-weight: 600;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            transform: translateX(10px);
+            color: var(--main-orange);
+        }
+        .menu-item .price { font-weight: 800; color: var(--dark); }
+        .menu-item .tag-summer { 
+            font-size: 10px; 
+            background: #007bff; 
+            color: white; 
+            padding: 2px 5px; 
+            border-radius: 3px;
+        }
+
+        /* 하단 플로팅 배지 */
+        .floating-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 560px; /* 경계선 근처 */
+            width: 100px;
+            height: 100px;
+            background: var(--point-pink);
+            border: 3px solid var(--dark);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            transform: rotate(-15deg);
-            box-shadow: 10px 10px 0px var(--text-black);
+            text-align: center;
+            font-weight: 900;
+            transform: rotate(-10px);
+            box-shadow: 5px 5px 0px var(--dark);
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Don-House</div>
-        <nav>MENU / STORY / STORE / CONTACT</nav>
-    </header>
-
-    <section class="hero">
-        <h1>CRISPY<br>ENERGY</h1>
-        <p>평범한 돈까스가 아닌, 감각을 깨우는 한 입.</p>
-    </section>
-
-    <section class="menu-container">
-        <div class="menu-item">
-            <div class="menu-img" style="background: #ffd700;"> </div>
-            <div class="menu-desc">오리지널 카츠 12.0</div>
+    <div class="container">
+        <div class="hero-side">
+            <div class="steady-tag">STEADY SELLER</div>
+            <h1 class="main-title">MUNBONG<br><span>STATION</span></h1>
+            <p style="margin-top:20px; font-weight:700;">돈까스 스파게티 세트 / 문봉 정식 / 순두부 세트</p>
         </div>
-        <div class="menu-item" style="margin-top: 50px;"> <div class="menu-img" style="background: #ff6b6b;"></div>
-            <div class="menu-desc">와사비 크림 카츠 14.0</div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-img" style="background: #4ecdc4;"></div>
-            <div class="menu-desc">트러플 오일 카츠 16.0</div>
-        </div>
-    </section>
 
-    <div class="badge">OPEN NOW</div>
+        <div class="menu-side">
+            <div class="section-label">BEST COMBOS</div>
+            <ul class="menu-list">
+                <li class="menu-item"><span>돈까스 순두부 세트</span> <span class="price">SET</span></li>
+                <li class="menu-item"><span>부대 순두부 돈까스</span> <span class="price">SET</span></li>
+                <li class="menu-item"><span>돈까스 반모밀 세트</span> <span class="price">SET</span></li>
+            </ul>
+
+            <div class="section-label" style="margin-top:30px;">CLASSIC & OTHERS</div>
+            <ul class="menu-list">
+                <li class="menu-item"><span>돈까스 1인분 (Classic)</span> <span class="price">Best</span></li>
+                <li class="menu-item"><span>김치 어묵 우동</span> <span class="price">Hot</span></li>
+                <li class="menu-item"><span>토마토 스파게티</span> <span class="price">Kids</span></li>
+                <li class="menu-item"><span>냉모밀 <b class="tag-summer">여름 한정</b></span> <span class="price">New</span></li>
+            </ul>
+        </div>
+
+        <div class="floating-badge">CRISPY<br>TASTY</div>
+    </div>
 
 </body>
 </html>
