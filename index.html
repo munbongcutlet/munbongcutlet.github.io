@@ -2,145 +2,135 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>문봉 돈까스 | Munbong Tonkatsu</title>
     <style>
         :root {
-            /* 웜톤 포인트 컬러 팔레트 */
-            --point-brown: #7B3F00;   /* 진한 초콜릿 브라운 */
-            --main-orange: #D35400;   /* 갈색빛 도는 차분한 주황 */
-            --bg-cream: #FFF5E1;      /* 따뜻한 크림색 배경 */
-            --soft-beige: #F5DEB3;    /* 부드러운 베이지 */
-            --text-dark: #3E2723;     /* 깊은 갈색 텍스트 */
+            --point-brown: #7B3F00;
+            --main-orange: #D35400;
+            --bg-cream: #FFF5E1;
+            --soft-beige: #F5DEB3;
+            --text-dark: #3E2723;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
             background-color: #E6D5C3;
-            font-family: 'Pretendard', -apple-system, sans-serif;
+            font-family: 'Pretendard', sans-serif;
+            color: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* 980*520 고정 컨테이너 */
+        /* [Main Container] */
         .container {
-            width: 980px;
-            height: 520px;
+            /* 기본적으로 너비는 100%를 지향하되 최대 1800px */
+            width: 100%;
+            max-width: 1800px;
+            /* 높이는 가변적이나 초기엔 520px 이상 유지 */
+            min-height: 520px;
             background: var(--bg-cream);
-            border: 8px solid var(--point-brown);
-            box-shadow: 20px 20px 0px rgba(123, 63, 0, 0.1);
-            position: relative;
+            border: clamp(4px, 1vw, 8px) solid var(--point-brown);
             display: flex;
+            flex-wrap: wrap; /* 모바일에서 떨어지도록 설정 */
+            position: relative;
             overflow: hidden;
+            box-shadow: 15px 15px 0px rgba(123, 63, 0, 0.1);
         }
 
-        /* 왼쪽: 메인 비주얼 영역 */
+        /* [Left Side: Hero] */
         .hero-section {
-            width: 55%;
-            height: 100%;
-            background-color: var(--soft-beige);
-            padding: 50px;
+            flex: 1 1 55%; /* 기본 55% 점유 */
+            min-width: 300px;
+            padding: clamp(2rem, 5vw, 4rem);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background-color: var(--soft-beige);
             border-right: 2px dashed var(--point-brown);
         }
 
-        .tag {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--main-orange);
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
         .main-title {
-            /* 자연스럽게 조절되는 타이포그래피 */
-            font-size: clamp(3rem, 6vw, 5rem);
+            /* 구간 사이에서 자연스럽게 변하는 폰트 크기 */
+            font-size: clamp(2.5rem, 8vw, 6rem);
             font-weight: 900;
             line-height: 1;
             color: var(--point-brown);
-            margin-bottom: 20px;
         }
 
-        .main-title span {
-            color: var(--main-orange);
-            display: block;
-        }
+        .main-title span { color: var(--main-orange); display: block; }
 
-        .description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            font-weight: 500;
-            color: var(--text-dark);
-            opacity: 0.9;
-        }
-
-        /* 오른쪽: 메뉴 스크롤 영역 */
+        /* [Right Side: Menu] */
         .menu-section {
-            width: 45%;
-            height: 100%;
-            padding: 40px;
-            overflow-y: auto;
+            flex: 1 1 45%;
+            min-width: 300px;
+            padding: clamp(1.5rem, 4vw, 3rem);
             background: var(--bg-cream);
         }
 
-        /* 스크롤바 커스텀 */
-        .menu-section::-webkit-scrollbar { width: 6px; }
-        .menu-section::-webkit-scrollbar-thumb { background: var(--soft-beige); border-radius: 10px; }
-
-        .category-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--point-brown);
-            border-bottom: 2px solid var(--point-brown);
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .menu-list { list-style: none; margin-bottom: 30px; }
-        
+        .menu-list { list-style: none; }
         .menu-item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            font-weight: 600;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(123, 63, 0, 0.1);
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.2vw, 1.2rem);
         }
 
-        .menu-item:hover { color: var(--main-orange); }
-
-        .price-tag {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            color: var(--main-orange);
+        /* [Media Queries] */
+        
+        /* 1. 데스크탑 기본 (1800px 이하) */
+        @media (max-width: 1800px) {
+            .container { max-width: 1400px; }
         }
 
-        /* 포인트 데코레이션 */
-        .circle-badge {
+        /* 2. 노트북/태블릿 가로 (1200px 이하) */
+        @media (max-width: 1200px) {
+            .container { max-width: 980px; }
+            .hero-section { padding: 30px; }
+        }
+
+        /* 3. 태블릿 세로/작은 모니터 (980px 이하) */
+        @media (max-width: 980px) {
+            .container { 
+                max-width: 700px; 
+                flex-direction: column; /* 여기서 위아래로 쌓임 */
+            }
+            .hero-section { 
+                width: 100%; 
+                border-right: none; 
+                border-bottom: 2px dashed var(--point-brown);
+                min-height: 300px;
+            }
+            .menu-section { width: 100%; }
+        }
+
+        /* 4. 모바일 (400px 이하) */
+        @media (max-width: 400px) {
+            body { padding: 10px; }
+            .container { border-width: 4px; }
+            .main-title { font-size: 2.5rem; }
+            .hero-section { padding: 20px; min-height: 200px; }
+            .menu-section { padding: 20px; }
+            .badge { display: none; } /* 모바일에서 복잡하면 숨김 */
+        }
+
+        .badge {
             position: absolute;
-            bottom: -20px;
-            right: -20px;
-            width: 140px;
-            height: 140px;
+            bottom: 20px;
+            right: 20px;
+            width: 100px; height: 100px;
             background: var(--main-orange);
             color: white;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            transform: rotate(-15deg);
-            padding: 20px;
-            text-align: center;
-            line-height: 1.2;
-            border: 4px solid var(--point-brown);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; transform: rotate(-10deg);
+            border: 3px solid var(--point-brown);
         }
     </style>
 </head>
@@ -148,37 +138,24 @@
 
     <div class="container">
         <div class="hero-section">
-            <div class="tag">STEADY SELLER</div>
+            <p style="font-weight: 800; color: var(--main-orange);">SINCE 2010</p>
             <h1 class="main-title">MUNBONG<span>KATSU</span></h1>
-            <p class="description">
-                바삭한 소리까지 맛있는 시간.<br>
-                <b>문봉 정식</b>부터 <b>돈까스 순두부 세트</b>까지<br>
-                정성 가득한 한 상을 대접합니다.
-            </p>
+            <p style="margin-top:15px;">돈까스 스파게티 세트 / 문봉 정식 / 순두부 세트</p>
         </div>
 
         <div class="menu-section">
-            <div class="category-title">Signature <span>Set</span></div>
+            <h2 style="margin-bottom:20px; border-bottom:3px solid var(--point-brown);">MENU LIST</h2>
             <ul class="menu-list">
-                <li class="menu-item"><span>돈까스 스파게티 세트</span> <span class="price-tag">Best</span></li>
-                <li class="menu-item"><span>문봉 정식</span> <span class="price-tag">Sig.</span></li>
-                <li class="menu-item"><span>돈까스 순두부 세트</span> <span class="price-tag">Hot</span></li>
-                <li class="menu-item"><span>부대 순두부 돈까스</span> <span class="price-tag">New</span></li>
-            </ul>
-
-            <div class="category-title">Classic & More</div>
-            <ul class="menu-list">
-                <li class="menu-item"><span>클래식 돈까스 1인분</span> <span class="price-tag">Classic</span></li>
-                <li class="menu-item"><span>김치 어묵 우동</span> <span class="price-tag">Warm</span></li>
-                <li class="menu-item"><span>돈까스 반모밀 세트</span> <span class="price-tag">Combi</span></li>
-                <li class="menu-item"><span>냉모밀 (Summer)</span> <span class="price-tag">Season</span></li>
-                <li class="menu-item"><span>토마토 스파게티</span> <span class="price-tag">Kids</span></li>
+                <li class="menu-item"><span>문봉 정식 (돈까스+함박)</span> <span>Sig.</span></li>
+                <li class="menu-item"><span>돈까스 순두부 세트</span> <span>Best</span></li>
+                <li class="menu-item"><span>돈까스 반모밀 세트</span> <span>Combi</span></li>
+                <li class="menu-item"><span>클래식 돈까스 1인분</span> <span>10.0</span></li>
+                <li class="menu-item"><span>김치 어묵 우동</span> <span>Hot</span></li>
+                <li class="menu-item"><span>냉모밀 (여름한정)</span> <span>Ice</span></li>
             </ul>
         </div>
 
-        <div class="circle-badge">
-            ALWAYS<br>CRISPY!
-        </div>
+        <div class="badge">ALWAYS<br>CRISPY</div>
     </div>
 
 </body>
